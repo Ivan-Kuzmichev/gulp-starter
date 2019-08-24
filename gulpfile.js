@@ -10,7 +10,13 @@ global.$ = {
     sass: require('gulp-sass'),
     postcss: require('gulp-postcss'),
     nunjucks: require('gulp-nunjucks-render'),
+    webpackStream: require('webpack-stream'),
+    webpack: require('webpack-stream').webpack,
+    named: require('vinyl-named'),
+    gulplog: require('gulplog'),
     browserSync: require('browser-sync'),
+
+
     /**----- Сборка проекта -----**/
     useref: require('gulp-useref'),
     del: require('del'),
@@ -37,9 +43,7 @@ $.path.config.tasks.forEach(function (taskPath) {
     require(taskPath)();
 });
 
-
-/**----- Основные таски -----**/
 $.gulp.task('default', $.gulp.series(
-    $.gulp.parallel('templates', 'styles', 'fonts', 'images'),
+    $.gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
     $.gulp.parallel('watch', 'server')
 ));

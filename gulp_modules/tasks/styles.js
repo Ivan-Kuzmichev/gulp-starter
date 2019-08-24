@@ -25,7 +25,7 @@ module.exports = function(){
                 return "Styles! Remember error: " + error.message;
             }))
 
-            .pipe($.gulp.dest('./gulp_modules/cache/css'))
+            .pipe($.gulp.dest('./gulp_modules/cache/styles'))
             .pipe($.browserSync.stream());
         end();
     });

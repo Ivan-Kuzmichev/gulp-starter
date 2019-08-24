@@ -5,7 +5,7 @@ module.exports = {
         './gulp_modules/tasks/styles',
         './gulp_modules/tasks/fonts',
         './gulp_modules/tasks/images',
-        './gulp_modules/tasks/js',
+        './gulp_modules/tasks/scripts',
         './gulp_modules/tasks/watch'
     ],
     module: {

@@ -39,6 +39,8 @@
     "path": "^0.12.7",
     "postcss-animation": "*",
     "postcss-font-magician": "*",
-    "postcss-short": "*"
+    "postcss-short": "*",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1"
   }
 }
