@@ -1,11 +1,23 @@
 module.exports = function(){
-    $.gulp.task('nunjucks', function(end){
-        return $.gulp.src(['app/nunjucks/**/*.html', '!app/nunjucks/**/_*.html']) 
-            .pipe($.nunjucks({
-                path: ['app/nunjucks/']
-            })).on('error', $.notify.onError(function (error) {
-                return "A task nunjucks error occurred: " + error.message;
+    $.gulp.task('templates', function(end){
+        return $.gulp.src(['./app/templates/**/*.html', '!./app/templates/**/_*.html']) 
+            .pipe($.cached('templates'))
+            .on('error', $.notify.onError(function (error) {
+                return "Templates! Cached error: " + error.message;
             }))
+
+            .pipe($.nunjucks({
+                path: ['./app/templates/']
+            }))
+            .on('error', $.notify.onError(function (error) {
+                return "Templates! Nunjucks error: " + error.message;
+            }))
+
+            .pipe($.remember('styles'))
+            .on('error', $.notify.onError(function (error) {
+                return "Templates! Remember error: " + error.message;
+            }))
+
             .pipe($.gulp.dest('./gulp_modules/cache/'))
         end();
     });

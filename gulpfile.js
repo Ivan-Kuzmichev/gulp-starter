@@ -1,8 +1,11 @@
 'use strict';
 
 global.$ = {
-    /**----- Основной таск -----**/
     gulp: require('gulp'),
+    remember: require('gulp-remember'),
+    path: require('path'),
+    cached: require('gulp-cached'),
+
     sass: require('gulp-sass'),
     postcss: require('gulp-postcss'),
     nunjucks: require('gulp-nunjucks-render'),
@@ -37,6 +40,6 @@ $.path.config.tasks.forEach(function (taskPath) {
 
 /**----- Основные таски -----**/
 $.gulp.task('default', $.gulp.series(
-    $.gulp.parallel('nunjucks', 'scss', 'fonts', 'images'),
+    $.gulp.parallel('nunjucks', 'styles', 'fonts', 'images'),
     $.gulp.parallel('watch', 'browser-sync')
 ));

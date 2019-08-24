@@ -1,9 +1,13 @@
 module.exports = function(){
     $.gulp.task('watch', function(end) {
-        $.gulp.watch('./app/scss/**/*.scss', $.gulp.series('scss'));
-        $.gulp.watch('./app/nunjucks/**/*.html', $.gulp.series('nunjucks'));
-        // $.gulp.watch(p.main.fullPathJs, $.browserSync.reload);
-        // $.gulp.watch(p.main.fullPathCss, $.browserSync.reload);
+        $.gulp.watch('./app/styles/**/*.scss', $.gulp.series('styles')).on('unlink', function(filepath){
+            $.remember.forget('styles', $.path.resolve(filepath));
+            delete $.cached.caches.styles[$.path.resolve(filepath)];
+        });
+        $.gulp.watch('./app/templates/**/*.html', $.gulp.series('templates')).on('unlink', function(filepath){
+            $.remember.forget('templates', $.path.resolve(filepath));
+            delete $.cached.caches.templates[$.path.resolve(filepath)];
+        });
         end();
     });
 }
