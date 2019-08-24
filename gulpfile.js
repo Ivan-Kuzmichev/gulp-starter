@@ -2,15 +2,15 @@
 
 global.$ = {
     gulp: require('gulp'),
+    newer: require('gulp-newer'),
     remember: require('gulp-remember'),
     path: require('path'),
     cached: require('gulp-cached'),
-
+    notify: require('gulp-notify'),
     sass: require('gulp-sass'),
     postcss: require('gulp-postcss'),
     nunjucks: require('gulp-nunjucks-render'),
     browserSync: require('browser-sync'),
-    notify: require('gulp-notify'),
     /**----- Сборка проекта -----**/
     useref: require('gulp-useref'),
     del: require('del'),

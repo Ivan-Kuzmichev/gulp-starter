@@ -8,6 +8,8 @@ module.exports = function(){
             $.remember.forget('templates', $.path.resolve(filepath));
             delete $.cached.caches.templates[$.path.resolve(filepath)];
         });
+        $.gulp.watch('./app/images/**/*', $.gulp.series('images'));
+        $.gulp.watch('./app/fonts/**/*', $.gulp.series('fonts'));
         end();
     });
 }

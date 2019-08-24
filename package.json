@@ -26,6 +26,7 @@
     "gulp-group-css-media-queries": "*",
     "gulp-htmlmin": "*",
     "gulp-imagemin": "*",
+    "gulp-newer": "^1.4.0",
     "gulp-notify": "*",
     "gulp-nunjucks-render": "*",
     "gulp-postcss": "*",
