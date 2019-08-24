@@ -19,6 +19,7 @@ module.exports = function(){
             }))
 
             .pipe($.gulp.dest('./gulp_modules/cache/'))
+            .pipe($.browserSync.stream());
         end();
     });
 }

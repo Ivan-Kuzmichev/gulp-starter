@@ -1,6 +1,6 @@
 module.exports = {
     tasks: [
-        './gulp_modules/tasks/browser-sync',
+        './gulp_modules/tasks/server',
         './gulp_modules/tasks/templates',
         './gulp_modules/tasks/styles',
         './gulp_modules/tasks/fonts',
