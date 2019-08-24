@@ -1,0 +1,53 @@
+$total-columns: 12; // всего столбоцов (можно задавать любое, но обычно 12)
+$column-width: 100%; // ширина одного столбца относительно 100% / общее количество столбцов
+$column-margin: 5%; // расстояние между столбцами
+$w: ($column-width - ($column-margin * 2)) / $total-columns;
+
+$b-xs: 480px;
+$b-sm: 768px;
+$b-ms: 1024px;
+$b-md: 1280px;
+$b-lg: 1440px;
+$b-mg: 1680px;
+
+@mixin grid {
+  width: 100%;
+  margin: 0 #{-$column-margin};
+}
+
+@mixin col($xs, $sm: 0, $ms: 0, $md: 0, $lg: 0, $mg: 0) {
+  $width: $w * $xs;
+  display: inline-block;
+  width: $width;
+  margin: 0 $column-margin;
+  @if $sm > 0 {
+    @media (min-width: $b-sm) {
+      $width: $w * $sm;
+      width: $width;
+    }
+  }
+  @if $ms > 0 {
+    @media (min-width: $b-ms) {
+      $width: $w * $ms;
+      width: $width;
+    }
+  }
+  @if $md > 0 {
+    @media (min-width: $b-ms) {
+      $width: $w * $ms;
+      width: $width;
+    }
+  }
+  @if $lg > 0 {
+    @media (min-width: $b-lg) {
+      $width: $w * $lg;
+      width: $width;
+    }
+  }
+  @if $mg > 0 {
+    @media (min-width: $b-mg) {
+      $width: $w * $mg;
+      width: $width;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "base/libs";
+@import "base/fonts";
+@import "base/vars";
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+::selection, {
+    color: white; 
+    background: black;
+}
+
+@import "blocks/header";

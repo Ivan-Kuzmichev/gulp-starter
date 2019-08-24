@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	{% include "base/_meta.html" %}
+	<link rel="stylesheet" href="./libs/fontawesome/css/all.min.css">
+	<!-- build:css css/libs.css rel="stylesheet" media="nope!" onload="this.media='all'" -->
+	<link href="libs/normalize.css" rel="stylesheet">
+	<!-- endbuild -->
+	<link href="css/main.css" rel="stylesheet" media="nope!" onload="this.media='all'">
+	<noscript>
+		<link href="css/libs.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+	</noscript>
+</head>
+
+
+<body>
+
+	{% block main %}{% endblock %}
+
+</body>
+
+
+<!-- build:js js/main.js async -->
+<script type="text/javascript" src="js/_hamburger.js"></script>
+<script type="text/javascript" src="js/_projects.js"></script>
+<!-- endbuild -->
+
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "gulp-coffee",
+  "version": "1.0.0",
+  "description": "gulp start assembly",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "Ivan Kuzmichev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "autoprefixer": "*",
+    "browser-sync": "*",
+    "critical": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-babel": "*",
+    "gulp-clean-css": "*",
+    "gulp-embed-svg": "*",
+    "gulp-group-css-media-queries": "*",
+    "gulp-htmlmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-notify": "*",
+    "gulp-nunjucks-render": "*",
+    "gulp-postcss": "*",
+    "gulp-responsive": "*",
+    "gulp-sass": "*",
+    "gulp-tinypng-compress": "*",
+    "gulp-uglifyjs": "*",
+    "gulp-useref": "*",
+    "postcss-animation": "*",
+    "postcss-font-magician": "*",
+    "postcss-short": "*"
+  }
+}

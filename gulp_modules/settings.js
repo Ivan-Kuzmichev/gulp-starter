@@ -1,0 +1,1 @@
+global.tinypngKey = 'khxIPqiJ0lt8o3IIY3Y5jdV2mo38Kiu6';
