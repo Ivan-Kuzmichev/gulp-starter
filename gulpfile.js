@@ -40,6 +40,6 @@ $.path.config.tasks.forEach(function (taskPath) {
 
 /**----- Основные таски -----**/
 $.gulp.task('default', $.gulp.series(
-    $.gulp.parallel('nunjucks', 'styles', 'fonts', 'images'),
+    $.gulp.parallel('templates', 'styles', 'fonts', 'images'),
     $.gulp.parallel('watch', 'server')
 ));
