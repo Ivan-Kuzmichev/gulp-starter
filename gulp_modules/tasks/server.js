@@ -5,7 +5,7 @@ module.exports = function(){
 			notify: false,
 			open: false
 		});
-		$.browserSync.watch(['./gulp_modules/cache/**/*', '!./gulp_modules/cache/css/**/*', '!./gulp_modules/cache/*.html']).on('change', $.browserSync.reload);
+		$.browserSync.watch(['./gulp_modules/cache/**/*', '!./gulp_modules/cache/styles/**/*', '!./gulp_modules/cache/*.html', '!./gulp_modules/cache/scripts/**/*',]).on('change', $.browserSync.reload);
 		end();
 	});
 }

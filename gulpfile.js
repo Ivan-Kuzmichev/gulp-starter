@@ -10,8 +10,7 @@ global.$ = {
     sass: require('gulp-sass'),
     postcss: require('gulp-postcss'),
     nunjucks: require('gulp-nunjucks-render'),
-    webpackStream: require('webpack-stream'),
-    webpack: require('webpack-stream').webpack,
+    webpack: require('webpack-stream'),
     named: require('vinyl-named'),
     gulplog: require('gulplog'),
     browserSync: require('browser-sync'),
@@ -32,7 +31,8 @@ global.$ = {
     critical: require('critical').stream,
     path: {
         config: require('./gulp_modules/config.js'),
-        settings: require('./gulp_modules/settings.js')
+        settings: require('./gulp_modules/settings.js'),
+        webpackConfig: require('./gulp_modules/webpack.config.js')
     }
 };
 

@@ -2,12 +2,12 @@
 @import "base/fonts";
 @import "base/vars";
 
-html, body{
+html, body {
     margin: 0;
     padding: 0;
 }
 
-::selection, {
+::selection {
     color: white; 
     background: black;
 }

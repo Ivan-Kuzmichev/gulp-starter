@@ -15,6 +15,7 @@
     "@babel/core": "*",
     "@babel/preset-env": "*",
     "autoprefixer": "*",
+    "babel-loader": "^8.0.6",
     "browser-sync": "*",
     "critical": "*",
     "del": "*",
@@ -41,6 +42,7 @@
     "postcss-font-magician": "*",
     "postcss-short": "*",
     "vinyl-named": "^1.1.0",
+    "webpack": "^4.39.2",
     "webpack-stream": "^5.2.1"
   }
 }
