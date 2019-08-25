@@ -7,6 +7,8 @@ module.exports = function(){
                 return "Styles! Cached error: " + error.message;
             }))
 
+            .pipe($.sourcemaps.init())
+
             .pipe($.sass())
             .on('error', $.notify.onError(function (error) {
                 return "Styles! Sсss error occurred: " + error.message;
@@ -30,6 +32,8 @@ module.exports = function(){
             .on('error', $.notify.onError(function (error) {
                 return "Styles! Group media queries error: " + error.message;
             }))
+
+            .pipe($.sourcemaps.write())
 
             .pipe($.gulp.dest('./gulp_modules/cache/styles'))
             .pipe($.browserSync.stream());

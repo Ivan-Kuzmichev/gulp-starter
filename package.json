@@ -39,6 +39,7 @@
     "gulp-remember": "^1.0.1",
     "gulp-responsive": "2",
     "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-useref": "3",
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
