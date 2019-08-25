@@ -9,10 +9,10 @@ global.$ = {
     notify: require('gulp-notify'),
     sass: require('gulp-sass'),
     postcss: require('gulp-postcss'),
+    gcmq: require('gulp-group-css-media-queries'),
     nunjucks: require('gulp-nunjucks-render'),
     webpack: require('webpack-stream'),
     named: require('vinyl-named'),
-    gulplog: require('gulplog'),
     browserSync: require('browser-sync'),
 
 
@@ -20,13 +20,8 @@ global.$ = {
     useref: require('gulp-useref'),
     del: require('del'),
     babel: require('gulp-babel'),
-    uglify: require('gulp-uglifyjs'),
-    tinypng: require('gulp-tinypng-compress'),
     imagemin: require('gulp-imagemin'),
-    embedSvg: require('gulp-embed-svg'),
-    responsive: require('gulp-responsive'),
 	htmlmin: require('gulp-htmlmin'),
-	gcmq: require('gulp-group-css-media-queries'),
     cleancss: require('gulp-clean-css'),
     critical: require('critical').stream,
     path: {
