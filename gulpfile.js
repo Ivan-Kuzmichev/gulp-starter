@@ -1,32 +1,24 @@
 'use strict';
 
-global.$ = {
-    gulp: require('gulp'),
-    newer: require('gulp-newer'),
-    remember: require('gulp-remember'),
-    path: require('path'),
-    cached: require('gulp-cached'),
-    notify: require('gulp-notify'),
-    sass: require('gulp-sass'),
-    postcss: require('gulp-postcss'),
-    gcmq: require('gulp-group-css-media-queries'),
-    nunjucks: require('gulp-nunjucks-render'),
-    webpack: require('webpack-stream'),
-    named: require('vinyl-named'),
-    browserSync: require('browser-sync'),
-    sourcemaps: require('gulp-sourcemaps'),
-    path: {
-        config: require('./gulp_modules/config.js'),
-        settings: require('./gulp_modules/settings.js'),
-        webpackConfig: require('./gulp_modules/webpack.config.js')
-    }
-};
+let gulp = require('gulp'),
+    task = require('gulp-lazy-task')('./gulp_modules/tasks');
 
-$.path.config.tasks.forEach(function (taskPath) {
-    require(taskPath)();
-});
+task('fonts', {
+    src: './app/fonts/**/*',
+    dest: './gulp_modules/cache/fonts'
+})
 
-$.gulp.task('default', $.gulp.series(
-    $.gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
-    $.gulp.parallel('watch', 'server')
-));
+task('images', {
+    src: './app/images/**/*',
+    dest: './gulp_modules/cache/images'
+})
+
+task('scripts', {
+    src: ['./app/scripts/**/*.js', '!./scripts/js/**/_*.js'],
+    dest: './gulp_modules/cache/scripts'
+})
+
+// gulp.task('default', gulp.series(
+//     gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
+//     gulp.parallel('watch', 'server')
+// ));

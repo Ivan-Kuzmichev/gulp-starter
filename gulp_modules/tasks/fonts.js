@@ -1,8 +1,6 @@
-module.exports = function(){
-    $.gulp.task('fonts', function(end){
-        return $.gulp.src('./app/fonts/**/*', {since: $.gulp.lastRun('fonts')})
-            .pipe($.newer('./gulp_modules/cache/fonts'))
-            .pipe($.gulp.dest('./gulp_modules/cache/fonts'))
-        end();
-    });
+module.exports = function (options, callback) {
+    return this.gulp.src(options.src, {since: this.gulp.lastRun('fonts')})
+        .pipe(this.newer(options.dest))
+        .pipe(this.gulp.dest(options.dest))
+    callback();
 }

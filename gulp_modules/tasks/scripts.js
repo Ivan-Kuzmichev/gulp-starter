@@ -1,20 +1,23 @@
-module.exports = function(){
-    $.gulp.task('scripts', function(end){
-        return $.gulp.src('./app/scripts/**/*.js', '!./scripts/js/**/_*.js')
-            .pipe($.named())
-            .on('error', $.notify.onError(function (error) {
-                return "Scripts! Named error: " + error.message;
-            }))
+module.exports = function (options, callback) {
 
-            .pipe($.webpack({
-                config: $.path.webpackConfig
-            }))
-            .on('error', $.notify.onError(function (error) {
-                return "Scripts! Webpack error: " + error.message;
-            }))
+    this.named = require('vinyl-named');
+    this.webpack = require('webpack-stream');
+    this.browserSync = require('browser-sync');
 
-            .pipe($.gulp.dest('./gulp_modules/cache/scripts'))
-            .pipe($.browserSync.stream());
-        end();
-    });
+    return this.gulp.src(options.src)
+        .pipe(this.named())
+        .on('error', this.notify.onError(function (error) {
+            return "Scripts! Named error: " + error.message;
+        }))
+
+        .pipe(this.webpack({
+            config: require('../../gulp_modules/webpack.config.js')
+        }))
+        .on('error', this.notify.onError(function (error) {
+            return "Scripts! Webpack error: " + error.message;
+        }))
+
+        .pipe(this.gulp.dest(options.dest))
+        .pipe(this.browserSync.stream())
+    callback();
 }

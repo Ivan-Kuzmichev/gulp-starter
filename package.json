@@ -32,22 +32,20 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "5",
     "gulp-imagemin": "6",
+    "gulp-lazy-task": "0.0.15",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "3",
     "gulp-nunjucks-render": "2",
     "gulp-postcss": "8",
     "gulp-remember": "^1.0.1",
-    "gulp-responsive": "2",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-useref": "3",
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "postcss-animation": "0.0.12",
     "postcss-font-magician": "2",
     "postcss-short": "5",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.39.2",
     "webpack-stream": "^5.2.1"
   }
 }
