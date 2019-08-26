@@ -32,7 +32,7 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "5",
     "gulp-imagemin": "6",
-    "gulp-lazy-task": "0.0.15",
+    "gulp-load-plugins": "^2.0.1",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "3",
     "gulp-nunjucks-render": "2",

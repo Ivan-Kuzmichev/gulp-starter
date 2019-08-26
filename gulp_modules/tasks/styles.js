@@ -1,42 +1,47 @@
-module.exports = function(){
-    $.sass.compiler = require('node-sass');
-    $.gulp.task('styles', function(end){
-        return $.gulp.src('app/styles/**/*.scss')
-            .pipe($.cached('styles'))
-            .on('error', $.notify.onError(function (error) {
+const gulp = require('gulp');
+const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
+
+module.exports = function (options){
+    plugins.sass.compiler = require('node-sass');
+    return function(callback){
+        return gulp.src(options.src)
+
+            .pipe(plugins.cached(options.taskName))
+            .on('error', plugins.notify.onError(function (error) {
                 return "Styles! Cached error: " + error.message;
             }))
 
-            .pipe($.sourcemaps.init())
+            .pipe(plugins.sourcemaps.init())
 
-            .pipe($.sass())
-            .on('error', $.notify.onError(function (error) {
+            .pipe(plugins.sass())
+            .on('error', plugins.notify.onError(function (error) {
                 return "Styles! Sсss error occurred: " + error.message;
             }))
 
-            .pipe($.postcss([
+            .pipe(plugins.postcss([
                 require('postcss-short')(),
                 require('postcss-animation')(),
                 require('autoprefixer')()
             ]))
-            .on('error', $.notify.onError(function (error) {
+            .on('error', plugins.notify.onError(function (error) {
                 return "Styles! Postcss error: " + error.message;
             }))
 
-            .pipe($.remember('styles'))
-            .on('error', $.notify.onError(function (error) {
+            .pipe(plugins.remember('styles'))
+            .on('error', plugins.notify.onError(function (error) {
                 return "Styles! Remember error: " + error.message;
             }))
 
-            .pipe($.gcmq())
-            .on('error', $.notify.onError(function (error) {
+            .pipe(plugins.groupCssMediaQueries())
+            .on('error', plugins.notify.onError(function (error) {
                 return "Styles! Group media queries error: " + error.message;
             }))
 
-            .pipe($.sourcemaps.write())
+            .pipe(plugins.sourcemaps.write())
 
-            .pipe($.gulp.dest('./gulp_modules/cache/styles'))
-            .pipe($.browserSync.stream());
-        end();
-    });
+            .pipe(gulp.dest(options.dest))
+            .pipe(plugins.browserSync.stream());
+
+        callback();
+    }
 }
