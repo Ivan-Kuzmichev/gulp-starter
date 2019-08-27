@@ -3,34 +3,38 @@
 let gulp    = require('gulp'),
     task    = require('./gulp_modules/load');
 
+task('assets', 'copying', {
+    src: ['./app/assets/**/*', '!./app/assets/favicons/**/*'],
+    dest: './gulp_modules/cache/assets'
+})
 
-task('fonts', 'fonts', {
+task('fonts', 'development/fonts', {
     src: './app/fonts/**/*',
     dest: './gulp_modules/cache/fonts'
 })
 
-task('images', 'images', {
+task('images', 'development/images', {
     src: './app/images/**/*',
     dest: './gulp_modules/cache/images'
 })
 
-task('scripts', 'scripts', {
+task('scripts', 'development/scripts', {
     src: ['./app/scripts/**/*.js', '!./scripts/js/**/_*.js'],
     dest: './gulp_modules/cache/scripts'
 })
 
-task('styles', 'styles', {
+task('styles', 'development/styles', {
     src: 'app/styles/**/*.{scss, sass}',
     dest: './gulp_modules/cache/styles'
 })
 
-task('templates', 'templates', {
+task('templates', 'development/templates', {
     src: ['./app/templates/**/*.html', '!./app/templates/**/_*.html'],
     path: ['./app/templates/'],
     dest: './gulp_modules/cache/'
 })
 
-task('server', 'server', {
+task('server', 'development/server', {
     server: './gulp_modules/cache',
     watch: [
         './gulp_modules/cache/**/*', 
@@ -40,7 +44,7 @@ task('server', 'server', {
     ]
 })
 
-task('watch', 'watch', {
+task('watch', 'development/watch', {
     styles: {
         watch: './app/styles/**/*.scss',
         task: 'styles'
@@ -64,6 +68,16 @@ task('watch', 'watch', {
 })
 
 gulp.task('default', gulp.series(
-    gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
+    gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts', 'assets'),
     gulp.parallel('watch', 'server')
+));
+
+task('favicons', 'production/favicons', {
+    background: '#1d1d1d',
+    src: './app/assets/favicons/favicon.png',
+    dest: './dist/assets/favicons/'
+})
+
+gulp.task('build', gulp.series(
+    gulp.parallel('favicons'),
 ));

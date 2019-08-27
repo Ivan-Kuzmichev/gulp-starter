@@ -7,19 +7,19 @@ module.exports = function (options){
 
             .pipe(plugins.cached(options.taskName))
             .on('error', plugins.notify.onError(function (error) {
-                return "Templates! Cached error: " + error.message;
+                return "\nTemplates! Cached error: " + error.message;
             }))
 
             .pipe(plugins.nunjucksRender({
                 path: options.path
             }))
             .on('error', plugins.notify.onError(function (error) {
-                return "Templates! Nunjucks error: " + error.message;
+                return "\nTemplates! Nunjucks error: " + error.message;
             }))
 
             .pipe(plugins.remember(options.taskName))
             .on('error', plugins.notify.onError(function (error) {
-                return "Templates! Remember error: " + error.message;
+                return "\nTemplates! Remember error: " + error.message;
             }))
 
             .pipe(gulp.dest(options.dest))
