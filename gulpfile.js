@@ -24,6 +24,12 @@ task('styles', 'styles', {
     dest: './gulp_modules/cache/styles'
 })
 
+task('templates', 'templates', {
+    src: ['./app/templates/**/*.html', '!./app/templates/**/_*.html'],
+    path: ['./app/templates/'],
+    dest: './gulp_modules/cache/'
+})
+
 task('server', 'server', {
     server: './gulp_modules/cache',
     watch: [
@@ -34,7 +40,30 @@ task('server', 'server', {
     ]
 })
 
-// gulp.task('default', gulp.series(
-//     gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
-//     gulp.parallel('watch', 'server')
-// ));
+task('watch', 'watch', {
+    styles: {
+        watch: './app/styles/**/*.scss',
+        task: 'styles'
+    },
+    templates: {
+        watch: './app/templates/**/*.html',
+        task: 'templates'
+    },
+    scripts: {
+        watch: './app/scripts/**/*',
+        task: 'scripts'
+    },
+    images: {
+        watch: './app/images/**/*',
+        task: 'images'
+    },
+    fonts: {
+        watch: './app/fonts/**/*',
+        task: 'fonts'
+    }
+})
+
+gulp.task('default', gulp.series(
+    gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts'),
+    gulp.parallel('watch', 'server')
+));

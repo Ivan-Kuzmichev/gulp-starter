@@ -1,25 +1,30 @@
-module.exports = function(){
-    $.gulp.task('templates', function(end){
-        return $.gulp.src(['./app/templates/**/*.html', '!./app/templates/**/_*.html']) 
-            .pipe($.cached('templates'))
-            .on('error', $.notify.onError(function (error) {
+const gulp = require('gulp');
+const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
+
+module.exports = function (options){
+    return function(callback){
+        return gulp.src(options.src) 
+
+            .pipe(plugins.cached(options.taskName))
+            .on('error', plugins.notify.onError(function (error) {
                 return "Templates! Cached error: " + error.message;
             }))
 
-            .pipe($.nunjucks({
-                path: ['./app/templates/']
+            .pipe(plugins.nunjucksRender({
+                path: options.path
             }))
-            .on('error', $.notify.onError(function (error) {
+            .on('error', plugins.notify.onError(function (error) {
                 return "Templates! Nunjucks error: " + error.message;
             }))
 
-            .pipe($.remember('styles'))
-            .on('error', $.notify.onError(function (error) {
+            .pipe(plugins.remember(options.taskName))
+            .on('error', plugins.notify.onError(function (error) {
                 return "Templates! Remember error: " + error.message;
             }))
 
-            .pipe($.gulp.dest('./gulp_modules/cache/'))
-            .pipe($.browserSync.stream());
-        end();
-    });
+            .pipe(gulp.dest(options.dest))
+            .pipe(plugins.browserSync.stream());
+
+        callback();
+    }
 }
