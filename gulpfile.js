@@ -80,7 +80,11 @@ task('favicons', 'production/favicons', {
 
 task('images:build', 'production/images', {
     src: './app/images/**/*',
-    dest: './dist/images'
+    dest: './dist/images',
+    srcset: [
+        'app/styles/**/*.scss',
+        'app/templates/**/*.html'
+    ]
 })
 
 gulp.task('build', gulp.series(

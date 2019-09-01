@@ -5,17 +5,8 @@ module.exports = function (options){
     return function(callback){
 
         var configSrcSet = plugins.responsiveConfig(
-            [
-                'app/styles/**/*.scss',
-                'app/templates/**/*.html'
-            ], {
-                extensions: [
-                    'jpg',
-                    'jpeg',
-                    'png',
-                    'webp'
-                ]
-            }
+            options.srcset, 
+            {extensions: ['jpg', 'jpeg', 'png', 'webp']}
         );
         
         return plugins.merge2(
