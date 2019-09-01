@@ -16,6 +16,9 @@ module.exports = function (options){
             )
             .pipe(plugins.responsive(configSrcSet, {
                 errorOnEnlargement: false,
+                errorOnUnusedConfig: false,
+                errorOnUnusedImage: false,
+                skipOnEnlargement: true,
                 withMetadata: false
             }))
             .pipe(plugins.imagemin([
