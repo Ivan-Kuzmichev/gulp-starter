@@ -7,6 +7,9 @@ module.exports = function (options){
             .pipe(plugins.nunjucksRender({
                 path: options.path
             }))
+            .pipe(plugins.embedSvg({
+                selectors: ['svg[src$=".svg"]']
+            }))
             .pipe(plugins.htmlmin({ collapseWhitespace: true }))
             .pipe(gulp.dest(options.dest))
 

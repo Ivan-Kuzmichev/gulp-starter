@@ -1,7 +1,7 @@
 'use strict';
 
-let gulp    = require('gulp'),
-    task    = require('./gulp_modules/load');
+let gulp = require('gulp'),
+    task = require('./gulp_modules/load');
 
 task('assets', 'copying', {
     src: './app/assets/**/*',
@@ -72,6 +72,10 @@ gulp.task('default', gulp.series(
     gulp.parallel('watch', 'server')
 ));
 
+task('clean', 'clean', {
+    src: './dist'
+})
+
 task('favicons', 'production/favicons', {
     background: '#1d1d1d',
     src: './app/assets/favicons/favicon.png',
@@ -106,10 +110,6 @@ task('templates:build', 'production/templates', {
     src: ['./app/templates/**/*.html', '!./app/templates/**/_*.html'],
     path: ['./app/templates/'],
     dest: './dist'
-})
-
-task('clean', 'clean', {
-    src: './dist'
 })
 
 gulp.task('build', gulp.series(
