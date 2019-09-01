@@ -4,7 +4,7 @@ let gulp    = require('gulp'),
     task    = require('./gulp_modules/load');
 
 task('assets', 'copying', {
-    src: ['./app/assets/**/*', '!./app/assets/favicons/**/*'],
+    src: './app/assets/**/*',
     dest: './gulp_modules/cache/assets'
 })
 
@@ -78,6 +78,11 @@ task('favicons', 'production/favicons', {
     dest: './dist/assets/favicons/'
 })
 
+task('images:build', 'production/images', {
+    src: './app/images/**/*',
+    dest: './dist/images'
+})
+
 gulp.task('build', gulp.series(
-    gulp.parallel('favicons'),
+    gulp.parallel('favicons', 'images:build'),
 ));
