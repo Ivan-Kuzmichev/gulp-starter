@@ -19,9 +19,9 @@ module.exports = function (options){
             }))
 
             .pipe(plugins.postcss([
-                require('postcss-short')(),
-                require('postcss-animation')(),
-                require('autoprefixer')()
+                plugins.postcssShort(),
+                plugins.postcssAnimation(),
+                plugins.autoprefixer()
             ]))
             .on('error', plugins.notify.onError(function (error) {
                 return "\nStyles! Postcss error: " + error.message;

@@ -87,6 +87,31 @@ task('images:build', 'production/images', {
     ]
 })
 
+task('fonts:build', 'production/fonts', {
+    src: './app/fonts/**/*',
+    dest: './dist/fonts'
+})
+
+task('scripts:build', 'production/scripts', {
+    src: ['./app/scripts/**/*.js', '!./scripts/js/**/_*.js'],
+    dest: './dist/scripts'
+})
+
+task('styles:build', 'production/styles', {
+    src: 'app/styles/**/*.{scss, sass}',
+    dest: './dist/styles'
+})
+
+task('templates:build', 'production/templates', {
+    src: ['./app/templates/**/*.html', '!./app/templates/**/_*.html'],
+    path: ['./app/templates/'],
+    dest: './dist'
+})
+
+task('clean', 'clean', {
+    src: './dist'
+})
+
 gulp.task('build', gulp.series(
     gulp.parallel('favicons', 'images:build'),
 ));
