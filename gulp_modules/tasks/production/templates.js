@@ -9,7 +9,8 @@ module.exports = function (options){
             }))
             .pipe(plugins.embedSvg({
                 selectors: ['svg[src$=".svg"]'],
-                root: './app'
+                root: './app',
+                decodeEntities: true
             }))
             .pipe(plugins.htmlmin({ collapseWhitespace: true }))
             .pipe(gulp.dest(options.dest))

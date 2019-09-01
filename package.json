@@ -32,6 +32,7 @@
     "gulp-clean-css": "^4.2.0",
     "gulp-embed-svg": "^1.1.5",
     "gulp-favicons": "^2.3.1",
+    "gulp-fontmin": "^0.7.4",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "6",
