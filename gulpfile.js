@@ -94,7 +94,8 @@ task('scripts:build', 'production/scripts', {
 
 task('styles:build', 'production/styles', {
     src: 'app/styles/**/*.{scss, sass}',
-    dest: './dist/styles'
+    dest: './dist/styles',
+    use: ['./app/templates/**/*.html', './app/scripts/**/*.js']
 })
 
 task('templates:build', 'production/templates', {
@@ -104,5 +105,6 @@ task('templates:build', 'production/templates', {
 })
 
 gulp.task('build', gulp.series(
-    gulp.parallel('favicons', 'images:build'),
+    'clean',
+    gulp.parallel('favicons', 'images:build', 'fonts:build', 'scripts:build', 'styles:build', 'templates:build'),
 ));

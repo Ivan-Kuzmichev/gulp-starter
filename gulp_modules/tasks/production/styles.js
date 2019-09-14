@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
 module.exports = function (options){
-    plugins.sass.compiler = require('node-sass');
+    plugins.sass.compiler = plugins.nodeSass;
     return function(callback){
         return gulp.src(options.src)
             .pipe(plugins.sass())
@@ -13,7 +13,7 @@ module.exports = function (options){
             ]))
             .pipe(plugins.groupCssMediaQueries())
             .pipe(plugins.purgecss({
-                content: ['./app/templates/**/*.html', './app/scripts/**/*.js']
+                content: options.use
             }))
             .pipe(plugins.cleanCss({
                 level: { 2: { specialComments: 0 },
