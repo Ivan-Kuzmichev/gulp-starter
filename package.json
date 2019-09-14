@@ -41,6 +41,7 @@
     "gulp-notify": "3",
     "gulp-nunjucks-render": "2",
     "gulp-postcss": "8",
+    "gulp-print": "^5.0.2",
     "gulp-purgecss": "^1.2.0",
     "gulp-remember": "^1.0.1",
     "gulp-responsive": "^2.14.0",
@@ -69,6 +70,8 @@
     "sort-css-media-queries": "^1.4.3",
     "uncss": "^0.17.2",
     "vinyl-named": "^1.1.0",
+    "webpack-error-notification": "^0.1.8",
+    "webpack-notifier": "^1.8.0",
     "webpack-stream": "^5.2.1"
   }
 }

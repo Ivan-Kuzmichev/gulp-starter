@@ -19,7 +19,7 @@ task('images', 'development/images', {
 })
 
 task('scripts', 'development/scripts', {
-    src: ['./app/scripts/**/*.js', '!./scripts/js/**/_*.js'],
+    src: ['./app/scripts/*.js', '!./app/scripts/_*.js'],
     dest: './gulp_modules/cache/scripts'
 })
 
@@ -88,7 +88,7 @@ task('fonts:build', 'production/fonts', {
 })
 
 task('scripts:build', 'production/scripts', {
-    src: ['./app/scripts/**/*.js', '!./scripts/js/**/_*.js'],
+    src: ['./app/scripts/*.js', '!./app/scripts/_*.js'],
     dest: './dist/scripts'
 })
 

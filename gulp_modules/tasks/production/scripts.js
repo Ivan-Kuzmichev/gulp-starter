@@ -6,7 +6,8 @@ module.exports = function (options){
         return gulp.src(options.src)
             .pipe(plugins.vinylNamed())
             .pipe(plugins.webpackStream({
-                mode: 'none',
+                mode: 'development',
+                watch: false,
                 output: {
                     filename: "[name].js"
                 },
@@ -14,22 +15,9 @@ module.exports = function (options){
                     rules: [
                         {
                             test: /\.js$/,
-                            exclude: /node_modules/,
-                            use: {
-                                loader: require.resolve("babel-loader"),
-                                query: {
-                                    presets: [
-                                        ["@babel/preset-env", { modules: false }]
-                                    ]
-                                }
-                            }
+                            exclude: /node_modules/
                         }
                     ]
-                },
-                resolve: {
-                    alias: {
-                        "%blocks%": plugins.path.resolve(__dirname, "src/blocks")
-                    }
                 }
             }))
             .pipe(plugins.uglifyjs())
