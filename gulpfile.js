@@ -36,12 +36,7 @@ task('templates', 'development/templates', {
 
 task('server', 'development/server', {
     server: './gulp_modules/cache',
-    watch: [
-        './gulp_modules/cache/**/*', 
-        '!./gulp_modules/cache/styles/**/*', 
-        '!./gulp_modules/cache/*.html', 
-        '!./gulp_modules/cache/scripts/**/*'
-    ]
+    watch: ['./gulp_modules/cache/**/*']
 })
 
 task('watch', 'development/watch', {
@@ -52,10 +47,6 @@ task('watch', 'development/watch', {
     templates: {
         watch: './app/templates/**/*.html',
         task: 'templates'
-    },
-    scripts: {
-        watch: './app/scripts/**/*',
-        task: 'scripts'
     },
     images: {
         watch: './app/images/**/*',

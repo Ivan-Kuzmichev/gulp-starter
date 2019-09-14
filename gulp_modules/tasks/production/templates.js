@@ -12,7 +12,10 @@ module.exports = function (options){
                 root: './app',
                 decodeEntities: true
             }))
-            .pipe(plugins.htmlmin({ collapseWhitespace: true }))
+            .pipe(plugins.htmlmin({ 
+                collapseWhitespace: true,
+                removeComments: true 
+            }))
             .pipe(gulp.dest(options.dest))
 
         callback();

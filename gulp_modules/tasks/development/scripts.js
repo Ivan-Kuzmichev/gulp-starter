@@ -10,7 +10,7 @@ module.exports = function (options){
             }))
 
             .pipe(plugins.webpackStream({
-                mode: 'none',
+                watch: true,
                 output: {
                     filename: "[name].js"
                 },
@@ -30,14 +30,14 @@ module.exports = function (options){
                         }
                     ]
                 },
+                plugins: [
+                    new plugins.webpackStream.webpack.NoErrorsPlugin()
+                ],
                 resolve: {
                     alias: {
                         "%blocks%": plugins.path.resolve(__dirname, "src/blocks")
                     }
                 }
-            }))
-            .on('error', plugins.notify.onError(function (error) {
-                return "\nScripts! Webpack error: " + error.message;
             }))
 
             .pipe(gulp.dest(options.dest))
