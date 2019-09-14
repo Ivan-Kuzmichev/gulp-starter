@@ -18,8 +18,8 @@
     "not dead"
   ],
   "devDependencies": {
-    "@babel/core": "7.6",
-    "@babel/preset-env": "7.5",
+    "@babel/core": "7.5",
+    "@babel/preset-env": "7.6",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "9.6",
     "babel-loader": "^8.0.6",

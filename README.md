@@ -1,4 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/Ivan-Kuzmichev/gulp-starter?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues-raw/Ivan-Kuzmichev/gulp-starter?style=flat-square)
 ## Поддерживаемые варианты для автоматической генерации srcset
 
 * `-<width>`: `image-100.png`
