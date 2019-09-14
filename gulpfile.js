@@ -59,8 +59,8 @@ task('watch', 'development/watch', {
 })
 
 gulp.task('default', gulp.series(
-    gulp.parallel('templates', 'styles', 'fonts', 'images', 'scripts', 'assets'),
-    gulp.parallel('watch', 'server')
+    gulp.parallel('templates', 'styles', 'fonts', 'images', 'assets'),
+    gulp.parallel('scripts', 'watch', 'server')
 ));
 
 task('clean', 'clean', {

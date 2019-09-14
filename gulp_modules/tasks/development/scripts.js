@@ -13,6 +13,7 @@ module.exports = function (options){
             .pipe(plugins.webpackStream({
                 mode: 'development',
                 watch: true,
+                devtool: 'eval-source-map',
                 output: {
                     filename: "[name].js"
                 },

@@ -6,7 +6,7 @@ module.exports = function (options){
         return gulp.src(options.src)
             .pipe(plugins.vinylNamed())
             .pipe(plugins.webpackStream({
-                mode: 'development',
+                mode: 'production',
                 watch: false,
                 output: {
                     filename: "[name].js"
@@ -18,9 +18,14 @@ module.exports = function (options){
                             exclude: /node_modules/
                         }
                     ]
-                }
+                },
+                plugins: [
+                    new plugins.babelMinifyWebpackPlugin(),
+                    new plugins.terserWebpackPlugin({
+                        parallel: true
+                    })
+                ]
             }))
-            .pipe(plugins.uglifyjs())
             .pipe(gulp.dest(options.dest))
         callback();
     }

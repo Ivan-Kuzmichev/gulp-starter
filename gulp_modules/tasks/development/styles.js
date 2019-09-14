@@ -2,13 +2,18 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
 module.exports = function (options){
-    plugins.sass.compiler = require('node-sass');
+    plugins.sass.compiler = plugins.nodeSass;
     return function(callback){
         return gulp.src(options.src)
 
             .pipe(plugins.cached(options.taskName))
             .on('error', plugins.notify.onError(function (error) {
                 return "\nStyles! Cached error: " + error.message;
+            }))
+
+            .pipe(plugins.dependents())
+            .on('error', plugins.notify.onError(function (error) {
+                return "\nDependents! Cached error: " + error.message;
             }))
 
             .pipe(plugins.sourcemaps.init())
