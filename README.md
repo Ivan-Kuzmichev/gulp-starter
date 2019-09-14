@@ -1,3 +1,4 @@
+https://img.shields.io/github/license/Ivan-Kuzmichev/gulp-starter
 ## Поддерживаемые варианты для автоматической генерации srcset
 
 * `-<width>`: `image-100.png`
