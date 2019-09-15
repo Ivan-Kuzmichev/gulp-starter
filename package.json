@@ -10,7 +10,7 @@
     "gulp"
   ],
   "author": "Ivan Kuzmichev",
-  "license": "ISC",
+  "license": "MIT",
   "browserslist": [
     "last 1 version",
     "> 1%",
