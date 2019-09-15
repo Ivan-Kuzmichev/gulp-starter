@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const yargsInteractive = require('yargs-interactive');
+const rimraf = require("rimraf");
+const {spawn} = require ("child_process");
 
 const options = {
     git: {
@@ -40,17 +42,14 @@ yargsInteractive()
     .then((result) => {
         if (result.delete) {
             console.log(`Delete repository...\n`);
-            console.log(`Successfully!\n`);
+            rimraf("./.git/", function () { console.log("Successfully!"); });
             yargsInteractive()
                 .usage('$0 <command> [args]')
                 .interactive(options.git.init)
                 .then((result) => {
                     if (result.init) {
-                        const {spawn} = require ('child_process');
-                        const cmd = 'git init';
-                        const p = spawn (cmd, [], {shell: true});
-
-                        p.stdout.on ('data', (data) => {
+                        const cmd = spawn ('git init', [], {shell: true});
+                        cmd.stdout.on('data', (data) => {
                             console.log (data.toString ());
                         });
                     }
