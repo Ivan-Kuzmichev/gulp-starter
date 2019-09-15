@@ -41,8 +41,7 @@ yargsInteractive()
     .interactive(options.git.delete)
     .then((result) => {
         if (result.delete) {
-            console.log(`Delete repository...\n`);
-            rimraf("./.git/", function () { console.log("Successfully!"); });
+            rimraf("./.git/", () => true);
             yargsInteractive()
                 .usage('$0 <command> [args]')
                 .interactive(options.git.init)
@@ -50,7 +49,7 @@ yargsInteractive()
                     if (result.init) {
                         const cmd = spawn ('git init', [], {shell: true});
                         cmd.stdout.on('data', (data) => {
-                            console.log (data.toString ());
+                            console.log(`\n${data.toString()}`);
                         });
                     }
                 })
