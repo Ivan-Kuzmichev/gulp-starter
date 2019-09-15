@@ -4,7 +4,7 @@
   "description": "gulp start assembly",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cli": "node ./gulp_modules/cli.js --interactive"
   },
   "keywords": [
     "gulp"
@@ -18,14 +18,10 @@
     "not dead"
   ],
   "devDependencies": {
-    "@babel/core": "7.5",
-    "@babel/preset-env": "7.6",
-    "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "9.6",
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "0.3.1",
     "browser-sync": "2.26",
-    "css-mqpacker": "^7.0.0",
     "del": "^5.1.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
@@ -34,7 +30,6 @@
     "gulp-dependents": "1.2.3",
     "gulp-embed-svg": "^1.1.5",
     "gulp-favicons": "^2.3.1",
-    "gulp-fontmin": "^0.7.4",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "6",
@@ -43,18 +38,14 @@
     "gulp-notify": "3",
     "gulp-nunjucks-render": "2",
     "gulp-postcss": "8",
-    "gulp-print": "^5.0.2",
     "gulp-purgecss": "^1.2.0",
     "gulp-remember": "^1.0.1",
     "gulp-responsive": "^2.14.0",
     "gulp-responsive-config": "^1.1.0",
     "gulp-sass": "^4.0.2",
-    "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^3.0.0",
-    "gulp-uglifyjs": "^0.6.2",
-    "gulp-webfont": "^0.0.1-4",
     "gulp-webp": "^4.0.1",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpeg-recompress": "^6.0.0",
@@ -65,16 +56,11 @@
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "postcss-animation": "0.0.12",
-    "postcss-font-magician": "2",
-    "postcss-purgecss": "^1.0.0",
     "postcss-short": "5",
-    "postcss-uncss": "^0.17.0",
-    "sort-css-media-queries": "^1.4.3",
     "terser-webpack-plugin": "2.0.1",
-    "uncss": "^0.17.2",
     "vinyl-named": "^1.1.0",
-    "webpack-error-notification": "^0.1.8",
     "webpack-notifier": "^1.8.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "yargs-interactive": "^3.0.0"
   }
 }

@@ -7,7 +7,6 @@ module.exports = function (options){
             .pipe(plugins.favicons({
                 settings: { background: options.background}
             }))
-            .pipe(plugins.size())
             .pipe(gulp.dest(options.dest))
         callback();
     }
