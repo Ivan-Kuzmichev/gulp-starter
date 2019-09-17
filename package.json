@@ -57,7 +57,7 @@
     "path": "^0.12.7",
     "postcss-animation": "0.0.12",
     "postcss-short": "5",
-    "terser-webpack-plugin": "2.0.1",
+    "terser-webpack-plugin": "2.1.0",
     "vinyl-named": "^1.1.0",
     "webpack-notifier": "^1.8.0",
     "webpack-stream": "^5.2.1",
