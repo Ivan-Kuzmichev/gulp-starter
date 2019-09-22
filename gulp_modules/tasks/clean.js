@@ -1,4 +1,4 @@
-const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
+const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
 module.exports = function (options){
     return function(callback){

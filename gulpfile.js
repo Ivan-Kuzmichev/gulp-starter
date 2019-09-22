@@ -1,19 +1,19 @@
 'use strict';
 
 let gulp = require('gulp'),
-    task = require('./gulp_modules/load');
+    {task} = require('./gulp_modules/load');
 
-task('assets', 'copying', {
+task('assets', 'development/copying', {
     src: './app/assets/**/*',
     dest: './gulp_modules/cache/assets'
 })
 
-task('fonts', 'development/fonts', {
+task('fonts', 'development/copying', {
     src: './app/fonts/**/*',
     dest: './gulp_modules/cache/fonts'
 })
 
-task('images', 'development/images', {
+task('images', 'development/copying', {
     src: './app/images/**/*',
     dest: './gulp_modules/cache/images'
 })
@@ -39,28 +39,9 @@ task('server', 'development/server', {
     watch: ['./gulp_modules/cache/**/*']
 })
 
-task('watch', 'development/watch', {
-    styles: {
-        watch: './app/styles/**/*.scss',
-        task: 'styles'
-    },
-    templates: {
-        watch: './app/templates/**/*.html',
-        task: 'templates'
-    },
-    images: {
-        watch: './app/images/**/*',
-        task: 'images'
-    },
-    fonts: {
-        watch: './app/fonts/**/*',
-        task: 'fonts'
-    }
-})
-
 gulp.task('default', gulp.series(
     gulp.parallel('templates', 'styles', 'fonts', 'images', 'assets'),
-    gulp.parallel('scripts', 'watch', 'server')
+    gulp.parallel('scripts', 'server')
 ));
 
 task('clean', 'clean', {

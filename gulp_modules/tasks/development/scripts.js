@@ -4,12 +4,7 @@ const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 module.exports = function (options){
     return function(callback){
         return gulp.src(options.src)
-
             .pipe(plugins.vinylNamed())
-            .on('error', plugins.notify.onError(function (error) {
-                return "\nScripts! Named error: " + error.message;
-            }))
-
             .pipe(plugins.webpackStream({
                 mode: 'development',
                 watch: true,
@@ -33,7 +28,6 @@ module.exports = function (options){
                     })
                 ]
             }))
-
             .pipe(gulp.dest(options.dest))
             .pipe(plugins.browserSync.stream())
         callback();
