@@ -1,5 +1,4 @@
 "use strict";
-
 var hamburger = document.getElementById("menu");
 
 hamburger.onclick = function () {

@@ -5,11 +5,6 @@ module.exports = function (options){
     plugins.sass.compiler = plugins.nodeSass;
     return function(callback){
         return gulp.src(options.src)
-            .pipe(plugins.watch(options.src))
-            .on('unlink', function(filepath){
-                delete plugins.cached.caches[options.taskName][plugins.path.resolve(filepath)];
-                plugins.remember.forget(options.taskName, plugins.path.resolve(filepath));
-            })
             .pipe(plugins.plumber({
                 errorHandler: plugins.notify.onError(`
                     \nError in task ${options.taskName}: \n<%= error.message %>

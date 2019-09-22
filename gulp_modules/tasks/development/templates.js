@@ -4,7 +4,6 @@ const plugins = require('gulp-load-plugins')({pattern: ['*']});
 module.exports = function (options){
     return function(callback){
         return gulp.src(options.src) 
-            .pipe(plugins.watch(options.src))
             .on('unlink', function(filepath){
                 delete plugins.cached.caches[options.taskName][plugins.path.resolve(filepath)];
                 plugins.remember.forget(options.taskName, plugins.path.resolve(filepath));

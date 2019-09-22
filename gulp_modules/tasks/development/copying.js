@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
 module.exports = function (options){
-    global.task[options.taskName] = 'increment';
     return function(callback){
         return gulp.src(options.src, {since: gulp.lastRun(options.taskName)})
             .pipe(plugins.plumber({

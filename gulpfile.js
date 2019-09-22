@@ -36,7 +36,7 @@ task('templates', 'development/templates', {
 
 task('server', 'development/server', {
     server: './gulp_modules/cache',
-    watch: ['./gulp_modules/cache/**/*']
+    watch: './gulp_modules/cache/**/*'
 })
 
 gulp.task('default', gulp.series(
