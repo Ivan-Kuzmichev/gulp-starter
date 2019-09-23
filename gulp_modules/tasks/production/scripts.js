@@ -16,6 +16,10 @@ module.exports = function (options){
                         {
                             test: /\.js$/,
                             exclude: /node_modules/
+                        }, {
+                            test: /\.ts$/,
+                            use: 'ts-loader',
+                            exclude: /node_modules/
                         }
                     ]
                 },

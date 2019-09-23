@@ -5,7 +5,7 @@ module.exports.task = function(taskName, path, options){
 	options = options || {};
 	options.taskName = taskName;
 	gulp.task(taskName, (callback) => {
-		if (path.includes('development') === true && path.includes('server') === false) {
+		if (path.includes('development') === true && path.includes('server') === false && path.includes('scripts') === false) {
 			if (path.includes('styles') === true || path.includes('templates') === true) {
 				gulp.watch(options.src, plugins.gulp.series(options.taskName))
 				.on('unlink', function(filepath){

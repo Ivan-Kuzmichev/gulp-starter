@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
+const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
 module.exports = function (options){
     return function(callback){
@@ -12,10 +12,17 @@ module.exports = function (options){
                 output: {
                     filename: "[name].js"
                 },
+                resolve: {
+                    extensions: [".ts", ".js"]
+                },
                 module: {
                     rules: [
                         {
                             test: /\.js$/,
+                            exclude: /node_modules/
+                        }, {
+                            test: /\.ts$/,
+                            use: 'ts-loader',
                             exclude: /node_modules/
                         }
                     ]

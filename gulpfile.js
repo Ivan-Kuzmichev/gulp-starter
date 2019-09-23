@@ -19,7 +19,7 @@ task('images', 'development/copying', {
 })
 
 task('scripts', 'development/scripts', {
-    src: ['./app/scripts/*.js', '!./app/scripts/_*.js'],
+    src: ['./app/scripts/*.{js,ts}', '!./app/scripts/_*.{js,ts}'],
     dest: './gulp_modules/cache/scripts'
 })
 
@@ -44,7 +44,7 @@ gulp.task('default', gulp.series(
     gulp.parallel('scripts', 'server')
 ));
 
-task('clean', 'clean', {
+task('clean', 'production/clean', {
     src: './dist'
 })
 
