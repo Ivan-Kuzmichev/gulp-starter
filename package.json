@@ -28,7 +28,7 @@
     "gulp-cached": "^1.1.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-dependents": "1.2.3",
-    "gulp-embed-svg": "^1.1.5",
+    "gulp-embed-svg": "^1.1.6",
     "gulp-favicons": "^2.3.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
