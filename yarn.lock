@@ -4212,10 +4212,10 @@ gulp-dependents@1.2.3:
     gulp-util "^3.0.8"
     through2 "^2.0.3"
 
-gulp-embed-svg@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/gulp-embed-svg/-/gulp-embed-svg-1.1.5.tgz#dd8509c2fad8d54fab6bb1fb420c9b0be744025d"
-  integrity sha512-68KfTGnj+gN+8Svvs4/KTPVG0NH8fV/zdoXPEilxxZmTqFYZK32U19ZZyFIxcYOPYi9tAQIxVXYnfDXU9nTm/Q==
+gulp-embed-svg@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-embed-svg/-/gulp-embed-svg-1.2.0.tgz#8bb69cfdb17036461f4dde38b9eb88f7fc9ba18f"
+  integrity sha512-v6ThSA0cDYsrlMJ1XvuiBlMI96QAT39T5n8iqk9z82TEzyI/CCKJYpEEa52xpVsNF7VtzqfLUqedqXjh0SQvHQ==
   dependencies:
     cheerio "^1.0.0-rc.2"
     plugin-error "^1.0.1"
