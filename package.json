@@ -59,7 +59,7 @@
     "path": "^0.12.7",
     "postcss-animation": "0.0.12",
     "postcss-short": "5",
-    "terser-webpack-plugin": "3.0.6",
+    "terser-webpack-plugin": "3.0.7",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "vinyl-named": "^1.1.0",
