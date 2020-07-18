@@ -1,9 +1,9 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
-        return gulp.src(options.src) 
+        return gulp.src(options.src)
             .on('unlink', function(filepath){
                 delete plugins.cached.caches[options.taskName][plugins.path.resolve(filepath)];
                 plugins.remember.forget(options.taskName, plugins.path.resolve(filepath));
@@ -28,4 +28,12 @@ module.exports = function (options){
 
         callback();
     }
+}
+
+module.exports.watch = function (options) {
+    gulp.watch(options.src, plugins.gulp.series(options.taskName))
+    .on('unlink', function(filepath){
+        delete plugins.cached.caches[options.taskName][plugins.path.resolve(filepath)];
+        plugins.remember.forget(options.taskName, plugins.path.resolve(filepath));
+    });
 }

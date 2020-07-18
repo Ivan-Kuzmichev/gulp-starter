@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
         return  plugins.merge2(
             gulp.src(options.src)

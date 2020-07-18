@@ -1,9 +1,9 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
-        return gulp.src(options.src) 
+        return gulp.src(options.src)
             .pipe(plugins.nunjucksRender({
                 path: options.path
             }))
@@ -12,9 +12,9 @@ module.exports = function (options){
                 root: './app',
                 decodeEntities: true
             }))
-            .pipe(plugins.htmlmin({ 
+            .pipe(plugins.htmlmin({
                 collapseWhitespace: true,
-                removeComments: true 
+                removeComments: true
             }))
             .pipe(gulp.dest(options.dest))
 

@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     plugins.sass.compiler = plugins.nodeSass;
     return function(callback){
         return gulp.src(options.src)

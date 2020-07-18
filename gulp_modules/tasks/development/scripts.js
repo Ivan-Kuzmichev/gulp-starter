@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
         return gulp.src(options.src)
             .pipe(plugins.vinylNamed())
@@ -26,17 +26,11 @@ module.exports = function (options){
                             exclude: /node_modules/
                         }
                     ]
-                },
-                plugins: [
-                    new plugins.webpackNotifier({
-                        title: 'Webpack', 
-                        skipFirstNotification: true,
-                        alwaysNotify: false
-                    })
-                ]
+                }
             }))
             .pipe(gulp.dest(options.dest))
             .pipe(plugins.browserSync.stream())
+
         callback();
     }
 }

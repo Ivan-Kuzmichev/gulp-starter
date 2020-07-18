@@ -63,7 +63,6 @@
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "vinyl-named": "^1.1.0",
-    "webpack-notifier": "^1.8.0",
     "webpack-stream": "^5.2.1",
     "yargs-interactive": "^3.0.0"
   }

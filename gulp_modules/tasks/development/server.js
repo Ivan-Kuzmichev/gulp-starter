@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
         plugins.browserSync.init({
 			server: options.server,
@@ -9,6 +9,7 @@ module.exports = function (options){
 			open: false
 		})
 		plugins.browserSync.watch(options.watch).on('change', plugins.browserSync.reload)
+
 		callback()
     }
 }

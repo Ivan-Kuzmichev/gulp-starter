@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
         gulp.src(options.src)
             .pipe(plugins.favicons({

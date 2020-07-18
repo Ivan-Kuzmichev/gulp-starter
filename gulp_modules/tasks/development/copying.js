@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
         return gulp.src(options.src, {since: gulp.lastRun(options.taskName)})
             .pipe(plugins.plumber({
@@ -11,6 +11,12 @@ module.exports = function (options){
             }))
             .pipe(plugins.newer(options.dest))
             .pipe(gulp.dest(options.dest))
+            .pipe(plugins.browserSync.stream())
+
         callback();
     }
+}
+
+module.exports.watch = function (options) {
+    gulp.watch(options.src, plugins.gulp.series(options.taskName));
 }

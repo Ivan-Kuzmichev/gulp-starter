@@ -1,14 +1,14 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*', '!@*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     return function(callback){
 
         var configSrcSet = plugins.responsiveConfig(
-            options.srcset, 
+            options.srcset,
             {extensions: ['jpg', 'jpeg', 'png', 'webp']}
         );
-        
+
         return plugins.merge2(
                gulp.src(options.src)
                    .pipe(plugins.webp()),

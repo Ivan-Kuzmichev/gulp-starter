@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({pattern: ['*']});
 
-module.exports = function (options){
+module.exports.process = function (options){
     plugins.sass.compiler = plugins.nodeSass;
     return function(callback){
         return gulp.src(options.src)
@@ -24,6 +24,15 @@ module.exports = function (options){
             .pipe(plugins.sourcemaps.write())
             .pipe(gulp.dest(options.dest))
             .pipe(plugins.browserSync.stream());
+
         callback();
     }
+}
+
+module.exports.watch = function (options) {
+    gulp.watch(options.src, plugins.gulp.series(options.taskName))
+    .on('unlink', function(filepath){
+        delete plugins.cached.caches[options.taskName][plugins.path.resolve(filepath)];
+        plugins.remember.forget(options.taskName, plugins.path.resolve(filepath));
+    });
 }
