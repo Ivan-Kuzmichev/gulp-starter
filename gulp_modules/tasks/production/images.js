@@ -22,7 +22,6 @@ module.exports.process = function (options){
                 withMetadata: false
             }))
             .pipe(plugins.imagemin([
-                plugins.imageminGifsicle({interlaced: true}),
                 plugins.imageminJpegRecompress({
                     progressive: true,
                     max: 80,
