@@ -29,7 +29,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-dependents": "1.2.5",
     "gulp-embed-svg": "^1.2.0",
-    "gulp-favicons": "^2.4.0",
+    "gulp-favicons": "^4.0.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "7",
